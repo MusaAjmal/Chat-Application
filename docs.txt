@@ -1,0 +1,83 @@
+📦 Features
+Actix Web server with WebSocket support
+
+Diesel ORM with PostgreSQL
+
+WebSocket echo server (ready for extension)
+
+R2D2 connection pooling
+
+.env-based config
+
+🚀 Getting Started
+1. Install Requirements
+Rust: https://rustup.rs
+
+PostgreSQL (local instance)
+
+Diesel CLI:
+
+
+cargo install diesel_cli --no-default-features --features postgres
+2. Clone & Navigate
+Unzip and enter the project folder:
+
+
+unzip chat-backend.zip
+cd chat-backend
+3. Set Up Environment
+Edit the .env file with your PostgreSQL details:
+
+
+DATABASE_URL=postgres://postgres:password@localhost/chat_db
+Create the database:
+
+
+createdb chat_db
+4. Set Up Diesel Migrations
+Run migrations (generate if missing):
+
+
+diesel setup
+diesel migration Run
+
+5. Run the Server
+cargo run
+Server runs at:
+
+
+
+
+http://127.0.0.1:8080/
+6. WebSocket Test
+Connect to:
+
+
+
+
+ws://localhost:8080/ws/
+Using any WebSocket client (e.g., Postman or browser), send:
+
+Hello!
+Server replies:
+
+Echo: Hello
+
+📁 Structure Overview
+
+Copy
+Edit
+src/
+├── main.rs      # Entry point
+├── db.rs        # DB pool setup
+├── ws.rs        # WebSocket logic
+├── routes.rs    # HTTP/WebSocket routes
+├── models.rs    # Diesel models
+├── schema.rs    # Diesel schema (auto-generated)
+
+✅ Next Steps
+Store messages to DB in ws.rs
+
+Add auth or REST endpoints
+
+Build a React/Next.js frontend

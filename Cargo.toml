@@ -1,25 +1,15 @@
 [package]
-name = "rust-app"
+name = "chat-backend"
 version = "0.1.0"
-edition = "2024"
-
-[[bin]]
-name = "client"
-path = "src/client.rs"
-
-[[bin]]
-name = "server"
-path = "src/main.rs"
+edition = "2021"
 
 [dependencies]
-actix-web = "4.11"                # web framework, macros, and types (web::Bytes)
-actix-ws = "0.3"                  # WebSocket session, message handling
-awc = "3.7"                       # Actix Web Client (WebSocket client)
-futures-util = "0.3"              # StreamExt, SinkExt, future combinators like select
-tokio = { version = "1", features = ["full", "macros"] }  # async runtime, timers, select!, mpsc, broadcast channels
-tokio-stream = "0.1"              # UnboundedReceiverStream to convert mpsc receiver to stream
-log = "0.4"                      # logging macros (info, debug, error)
-env_logger = "0.11"               # logging initialization
+actix-web = "4"
+actix-web-actors = "4.3.0"
+dotenvy = "0.15"
+actix-rt = "2"
 
-# Optional but recommended for stable logging and error reporting
-color-eyre = "0.6"                # enhanced error reporting (used in your earlier deps, optional here)
+diesel = { version = "2.1", features = ["postgres", "r2d2", "chrono"] }
+r2d2 = "0.8"
+serde = { version = "1", features = ["derive"] }
+uuid = { version = "1", features = ["v4"] }
